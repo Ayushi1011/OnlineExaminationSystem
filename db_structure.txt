@@ -1,0 +1,138 @@
+--Database: `quiz`
+--
+-- -----------------------------------------------------------------------------------------------------------------------------------
+--
+-- Table structure for table `admin`
+--
+CREATE TABLE IF NOT EXISTS `admin` (
+ `loginid` varchar(20) DEFAULT NULL,
+ `pass` varchar(20) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+--
+-- Dumping data for table `admin`
+--
+INSERT INTO `admin` (`loginid`, `pass`) VALUES
+('admin', 'admin');
+-- ----------------------------------------------------------------------------------------------------------------------------------
+--
+-- Table structure for table `questions`
+--
+CREATE TABLE IF NOT EXISTS `questions` (
+ `q_id` int(5) NOT NULL AUTO_INCREMENT,
+ `sub_id` int(5) DEFAULT NULL,
+ `question` varchar(150) DEFAULT NULL,
+ `A` varchar(75) DEFAULT NULL,
+ `B` varchar(75) DEFAULT NULL,
+ `C` varchar(75) DEFAULT NULL,
+ `D` varchar(75) DEFAULT NULL,
+ `correct` varchar(1) DEFAULT NULL,
+ PRIMARY KEY (`q_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=164 ;
+--
+-- Dumping data for table `questions`
+--
+INSERT INTO `questions` (`q_id`, `sub_id`, `question`, `A`, `B`, `C`, `D`, `correct`) VALUES
+(146, 1, 'PHP stands for ______', 'Personal Home Page', 'Preprocessor Hypertext', 'Public Home
+Phone', 'Public Home Packet', 'B'),
+(145, 1, 'The brain of any computer system is ______', 'ALU', 'Memory', 'CPU', 'Control unit', 'C'),
+(147, 1, 'HTML stands for _______', 'Hypertext mark up language', 'Cascaded Style Sheet', 'Hypertext
+make up language', 'none of the above', 'A'),
+(148, 1, 'Which of the following memories is an optical memory? _________', 'Floppy Disk',
+'CDâ€“ROM', 'Core Memories', 'Bubble Memories', 'B'),
+(149, 1, 'Which of the following is the most powerful type of computer? __________',
+'Superâ€“micro', 'Super conductor', 'Super computer', 'Megaframe', 'C'),
+(150, 2, 'Ozone hole refers to _______', 'hole in ozone layer', 'decrease in the ozone layer in
+troposphere', 'decrease in thickness of ozone layer in stratosphere', 'increase in the thickness of
+ozone layer in troposphere', 'C'),
+(151, 2, 'Pollination is best defined as _______', 'transfer of pollen from anther to stigma',
+'germination of pollen grains', 'growth of pollen tube in ovule', 'visiting flowers by insects', 'A'),
+(152, 2, 'Plants receive their nutrients mainly from _______', 'chlorophyll', 'atmosphere', 'light', 'soil',
+'D'),
+(153, 2, 'Movement of cell against concentration gradient is called ________', 'osmosis', 'active
+transport', 'diffusion', 'passive transport', 'B'),
+(154, 2, 'Plants absorb dissolved nitrates from soil and convert them into_________', 'free nitrogen',
+'urea', 'ammonia', 'proteins', 'A'),
+(155, 3, 'Bilal has 17 CDs and Rizwan has 12 different CDs.How many CDs do they have altogether?',
+'28', '29', '30', '31', 'B'),
+(156, 3, 'What is the next number in this sequence?\r\n15, 18, 21, ___', '24', '26', '29', '34', 'A'),
+(157, 3, 'Haris has 51 balloons and Umair has 45 balloons.\r\nHaris has how many more balloons than
+Umair?', '5', '6', '9', '11', 'B'),
+(158, 3, 'Yana has 27 fewer ribbons than Yulia, and Yulia has 53 ribbons.How many ribbons does Yana
+have?', '24', '26', '34', '80', 'B'),
+(159, 3, ' (2+6+21) = ', '29', '28', '30', '31', 'A'),
+(160, 4, 'he ____ boy', 'is', 'are', 'that', 'not', 'A'),
+(161, 4, 'How ____ you ?', 'are', 'is', 'am', 'the', 'A'),
+(162, 5, 'C++ is _____', 'language', 'code', 'meaning less', 'B and C', 'A'),
+(163, 5, 'int a[10];\nwhat is limit of about array', '0', '10', '20', '9', 'B');
+-- -----------------------------------------------------------------------------------------------------------------------------------
+--
+-- Table structure for table `result`
+--
+CREATE TABLE IF NOT EXISTS `result` (
+ `login` varchar(20) DEFAULT NULL,
+ `score` int(3) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+--
+-- Dumping data for table `result`
+--
+-- -----------------------------------------------------------------------------------------------------------------------------------
+--
+-- Table structure for table `subject`
+--
+CREATE TABLE IF NOT EXISTS `subject` (
+ `sub_id` int(5) NOT NULL AUTO_INCREMENT,
+ `sub_name` varchar(25) DEFAULT NULL,
+ PRIMARY KEY (`sub_id`),
+ UNIQUE KEY `sub_id` (`sub_id`),
+ UNIQUE KEY `sub_name` (`sub_name`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=67 ;
+--
+-- Dumping data for table `subject`
+--
+INSERT INTO `subject` (`sub_id`, `sub_name`) VALUES
+(1, 'Computer Science'),
+(2, 'Biology'),
+(3, 'Maths'),
+(4, 'english'),
+(5, 'programming');
+-- -----------------------------------------------------------------------------------------------------------------------------------
+--
+-- Table structure for table `user`
+--
+CREATE TABLE IF NOT EXISTS `user` (
+ `user_id` int(5) NOT NULL AUTO_INCREMENT,
+ `pass` varchar(20) DEFAULT NULL,
+ `username` varchar(30) DEFAULT NULL,
+ `address` varchar(50) DEFAULT NULL,
+ `email` varchar(30) DEFAULT NULL,
+ PRIMARY KEY (`user_id`),
+ UNIQUE KEY `user_id` (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=89 ;
+--
+-- Dumping data for table `user`
+--
+INSERT INTO `user` (`user_id`, `pass`, `username`, `address`, `email`) VALUES
+(1, '6191', 'waqas', 'peshawar', 'user@user.com'),
+(2, '6192', 'ihteram', 'peshawar', 'ihteramulhaq@555gmail.com'),
+(8, 'just', 'waqas', 'peshawar', 'waqasqayum1955@gmail.com'),
+(87, 'khan', 'ali', 'islamabad', 'alikhan55@yahoo.com'),
+(88, 'apple42', 'ihteram', 'peshawar', 'peshawar'),
+(43, 'jimykhan', 'junaid', 'peshawar', 'jimykhan@hotmail.com'),
+(47, 'adil', 'adil', 'karachi', 'adilkhan@gmail.com'),
+(22, '123', 'yasir', 'hayatabad', 'yasirkhan@gmail.com');
+-- -----------------------------------------------------------------------------------------------------------------------------------
+--
+-- Table structure for table `useranswer`
+--
+CREATE TABLE IF NOT EXISTS `useranswer` (
+ `sub_id` int(11) DEFAULT NULL,
+ `question` varchar(200) DEFAULT NULL,
+ `A` varchar(50) DEFAULT NULL,
+ `B` varchar(50) DEFAULT NULL,
+ `C` varchar(50) DEFAULT NULL,
+ `D` varchar(50) DEFAULT NULL,
+ `correct` int(11) DEFAULT NULL,
+ `your_ans` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+--
+-- Dumping data for table `useranswer`
